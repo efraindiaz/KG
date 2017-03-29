@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/nav_drones"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/nav_drones" />
+        <item
+            android:id="@+id/nav_cars"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_cars" />
+        <item
+            android:id="@+id/nav_helicopters"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_helicopters" />
+        <item
+            android:id="@+id/nav_boats"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_boats" />
+    </group>
+    <group  android:checkableBehavior="single"
+            android:dividerHeight="10dp">
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/nav_cart" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_profile" />
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_logout" />
+    </group>
+
+    <!--item android:title="Communicate"
+        android:dividerHeight="1dp">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item-->
+
+</menu>

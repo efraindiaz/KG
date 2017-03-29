@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detail_product"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.kg.Activities.DetailProductActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                app:srcCompat="@color/cardview_shadow_start_color"
+                android:id="@+id/imageViewProd"
+                android:layout_height="200dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/textViewProductName" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewPrice"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <Button
+                    android:text="@string/add_to_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:id="@+id/add_to_cart"
+                    android:layout_weight="0.40"
+                    android:background="@color/colorAccent"
+                    style="@android:style/Widget.Button" />
+            </LinearLayout>
+
+            <!-- DESCRIPCION DEL PRODUCTO -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewDesc"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- INFORMACION DEL PRODUCTO -->
+
+                <!-- BOTON ADD TO CART PRODUCTO -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

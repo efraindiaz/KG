@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">KontrolGeek</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- Strings categorias -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_drones">Drones</string>
+    <string name="nav_cars">Carros RC</string>
+    <string name="nav_helicopters">Helicopteros</string>
+    <string name="nav_boats">Botes RC</string>
+    <!-- -->
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nav_logout">Cerrar Sesión</string>
+
+
+    <string name="add_to_cart">Añadir al Carrito</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

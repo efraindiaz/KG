@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.kg.Adapter.Adapter;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarritoActivity extends AppCompatActivity {
+
+    TextView txtTotal;
 
     RecyclerView rv;
 
@@ -31,6 +34,8 @@ public class CarritoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
+
+        txtTotal = (TextView) findViewById(R.id.textView);
 
         Bundle extras = getIntent().getExtras();
 
@@ -52,6 +57,9 @@ public class CarritoActivity extends AppCompatActivity {
 
             ProductoCarrito producto = new ProductoCarrito(sku,img,nombre,precio);
             productosCP.add(producto);
+
+            txtTotal.setText("$"+precio+ "MXN");
+
         }
         else{
             Toast.makeText(this, "No hay productos en el carrito", Toast.LENGTH_SHORT).show();

@@ -2,10 +2,15 @@ package com.example.android.kg.Fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DronesFragment extends Fragment {
+public class DronesFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     RecyclerView rv;
 
@@ -42,6 +47,12 @@ public class DronesFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,10 +66,8 @@ public class DronesFragment extends Fragment {
 
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        //coches = new ArrayList<>();
         productos = new ArrayList<>();
 
-        //adapter = new Adapter(coches);
         adapter = new Adapter(productos);
 
         rv.setAdapter(adapter);
@@ -69,7 +78,7 @@ public class DronesFragment extends Fragment {
 
         DatabaseReference tiendaref = database.getReference(FirebaseReferences.TIENDA_REFERENCE);
 
-        tiendaref.child(FirebaseReferences.PRODUCTOS_REFERENCE).orderByChild("categoria").equalTo(2).addValueEventListener(new ValueEventListener() {
+        tiendaref.child(FirebaseReferences.PRODUCTOS_REFERENCE).orderByChild("categoria").equalTo(1).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -94,6 +103,41 @@ public class DronesFragment extends Fragment {
 
 
         return  v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("Search");
+        //MenuItem searchItem = menu.findItem(R.id.action_search);
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        newText = newText.toLowerCase();
+
+        List<Producto> newList = new ArrayList<>();
+        for(Producto producto: productos){
+
+            String name = producto.getNombre().toLowerCase();
+            if(name.contains(newText)){
+                newList.add(producto);
+            }
+        }
+        adapter.setFilter(newList);
+        return true;
     }
 
 }

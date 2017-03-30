@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_drones"
@@ -18,24 +18,24 @@
             android:id="@+id/nav_helicopters"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/nav_helicopters" />
-        <item
-            android:id="@+id/nav_boats"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/nav_boats" />
     </group>
     <group  android:checkableBehavior="single"
             android:dividerHeight="10dp">
         <item
             android:id="@+id/nav_cart"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_shopping_cart_black"
             android:title="@string/nav_cart" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_person"
             android:title="@string/nav_profile" />
         <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/ic_call_black_24dp"
+            android:title="Llamanos" />
+        <item
             android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_exit"
             android:title="@string/nav_logout" />
     </group>
 

@@ -149,7 +149,7 @@ public class PerfilActivity extends AppCompatActivity implements GoogleApiClient
         Glide.with(this).load(user.getPhotoUrl()).into(imgProfile);
 
         //Render datos en Campos de informacion de usuario
-        /*
+
         database = FirebaseDatabase.getInstance();
 
         DatabaseReference tiendaRef = database.getReference(FirebaseReferences.TIENDA_REFERENCE);
@@ -159,15 +159,23 @@ public class PerfilActivity extends AppCompatActivity implements GoogleApiClient
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Usuario userInfo = dataSnapshot.getValue(Usuario.class);
-                movil.setText(userInfo.getMovil());
-                noInterior.setText(userInfo.getNoInterior());
-                noExterior.setText(userInfo.getNoExterior());
-                calle.setText(userInfo.getCalle());
-                colonia.setText(userInfo.getColonia());
-                ciudad.setText(userInfo.getCiudad());
-                estado.setText(userInfo.getEstado());
-                codPostal.setText(userInfo.getCodPostal());
-                referencias.setText(userInfo.getReferencias());
+
+                if(userInfo == null){
+                    Toast.makeText(PerfilActivity.this, "Completa tu información", Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+                    movil.setText(userInfo.getMovil());
+                    noInterior.setText(userInfo.getNoInterior());
+                    noExterior.setText(userInfo.getNoExterior());
+                    calle.setText(userInfo.getCalle());
+                    colonia.setText(userInfo.getColonia());
+                    ciudad.setText(userInfo.getCiudad());
+                    estado.setText(userInfo.getEstado());
+                    codPostal.setText(userInfo.getCodPostal());
+                    referencias.setText(userInfo.getReferencias());
+                }
+
             }
 
             @Override
@@ -175,8 +183,6 @@ public class PerfilActivity extends AppCompatActivity implements GoogleApiClient
 
             }
         });
-
-        */
 
 
 

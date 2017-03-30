@@ -1,11 +1,14 @@
 package com.example.android.kg;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,6 +28,7 @@ import com.example.android.kg.Activities.CarritoActivity;
 import com.example.android.kg.Activities.PerfilActivity;
 import com.example.android.kg.Fragments.CarsFragment;
 import com.example.android.kg.Fragments.DronesFragment;
+import com.example.android.kg.Fragments.HelicoptersFragment;
 import com.example.android.kg.Fragments.HomeFragment;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -67,8 +71,11 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent intetToCart = new Intent(MainActivity.this,CarritoActivity.class);
+                startActivity(intetToCart);
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
 
@@ -142,7 +149,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -154,9 +161,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -186,6 +193,11 @@ public class MainActivity extends AppCompatActivity
                 fragmentTansaction = true;
                 break;
             }
+            case R.id.nav_helicopters:{
+                fragment = new HelicoptersFragment();
+                fragmentTansaction = true;
+                break;
+            }
             case R.id.nav_cart:{
                 Intent intent = new Intent(MainActivity.this, CarritoActivity.class);
                 startActivity(intent);
@@ -194,6 +206,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_profile:{
                 Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
                 startActivity(intent);
+                break;
+            }
+            case R.id.nav_call:{
+                callUs();
                 break;
             }
             case R.id.nav_exit:{
@@ -216,6 +232,15 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void callUs() {
+
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse("tel:0377778888"));
+
+        startActivity(callIntent);
+
     }
 
     private void defaultFragment(){

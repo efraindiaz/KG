@@ -17,6 +17,8 @@ import com.example.android.kg.Model.Coche;
 import com.example.android.kg.Model.Producto;
 import com.example.android.kg.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,7 +60,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ProductosviewHolder>{
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, indice+"", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, DetailProductActivity.class);
                 intent.putExtra("img", producto.getImg());
                 intent.putExtra("nombre", producto.getNombre());
@@ -93,6 +94,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ProductosviewHolder>{
             btnDetalles = (Button) itemView.findViewById(R.id.buttonSeeProduct);
 
         }
+    }
+
+    public void setFilter(List<Producto> newList){
+
+
+        productos =  new ArrayList<>();
+        productos.addAll(newList);
+        notifyDataSetChanged();
     }
 
 

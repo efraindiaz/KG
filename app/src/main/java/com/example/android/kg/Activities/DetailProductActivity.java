@@ -126,10 +126,10 @@ public class DetailProductActivity extends AppCompatActivity implements GoogleAp
     private void addToCart() {
 
         //Toast.makeText(this, "Añadir", Toast.LENGTH_SHORT).show();
-        database = FirebaseDatabase.getInstance();
+        //database = FirebaseDatabase.getInstance();
 
-        /*Ref to new product
-        DatabaseReference tiendaRef = database.getReference(FirebaseReferences.TIENDA_REFERENCE);
+        /*Ref to new product*/
+       /* DatabaseReference tiendaRef = database.getReference(FirebaseReferences.TIENDA_REFERENCE);
         Producto producto = new Producto("HZ-PTAPF723300", "http://www.kontrolgeek.com/img/productos/drones/parrot/HZ-PTAPF723300/HZ-PTAPF723300-lg.jpg",
                 "Parrot Travis Airborne Cargo Camera Drone", "No descripcion disponible", 5,2660,1);
         tiendaRef.child(FirebaseReferences.PRODUCTOS_REFERENCE).push().setValue(producto);*/
@@ -149,7 +149,6 @@ public class DetailProductActivity extends AppCompatActivity implements GoogleAp
     private void setUserData(FirebaseUser user) {
 
         UID_user = user.getUid();
-        Toast.makeText(this, UID_user+"", Toast.LENGTH_SHORT).show();
         //descProducto.setText(UID_user);
 
     }

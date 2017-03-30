@@ -149,7 +149,7 @@ public class PerfilActivity extends AppCompatActivity implements GoogleApiClient
         Glide.with(this).load(user.getPhotoUrl()).into(imgProfile);
 
         //Render datos en Campos de informacion de usuario
-
+        /*
         database = FirebaseDatabase.getInstance();
 
         DatabaseReference tiendaRef = database.getReference(FirebaseReferences.TIENDA_REFERENCE);
@@ -176,7 +176,7 @@ public class PerfilActivity extends AppCompatActivity implements GoogleApiClient
             }
         });
 
-
+        */
 
 
 

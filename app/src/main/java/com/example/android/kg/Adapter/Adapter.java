@@ -62,8 +62,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ProductosviewHolder>{
                 Intent intent = new Intent(context, DetailProductActivity.class);
                 intent.putExtra("img", producto.getImg());
                 intent.putExtra("nombre", producto.getNombre());
-                intent.putExtra("precio", Integer.toString(producto.getPrecio()));
+                intent.putExtra("precio", producto.getPrecio());
                 intent.putExtra("desc", producto.getDescripcion());
+                intent.putExtra("sku", producto.getSku());
                 context.startActivity(intent);
 
             }

@@ -43,6 +43,9 @@ public class DetailProductActivity extends AppCompatActivity implements GoogleAp
     ImageView imgProducto;
     Button add_to_cart;
 
+    //int precio;
+
+    String sku, nombre,img, desc;
     int precio;
 
     @Override
@@ -89,17 +92,30 @@ public class DetailProductActivity extends AppCompatActivity implements GoogleAp
 
         add_to_cart = (Button) findViewById(R.id.add_to_cart);
 
-        Glide.with(this).load(getIntent().getStringExtra("img")).into(imgProducto);
-        nombreProducto.setText(getIntent().getStringExtra("nombre"));
-        precioProducto.setText("$"+getIntent().getStringExtra("precio"));
-        descProducto.setText(getIntent().getStringExtra("desc"));
+        Bundle extras = getIntent().getExtras();
+        img = extras.getString("img");
+        nombre = extras.getString("nombre");
+        precio = extras.getInt("precio");
+        desc = extras.getString("desc");
+        sku = extras.getString("sku");
+
+        Glide.with(this).load(img).into(imgProducto);
+        nombreProducto.setText(nombre);
+        precioProducto.setText("$"+precio);
+        descProducto.setText(desc);
 
 
 
         add_to_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addToCart();
+                //addToCart();
+                Intent intentCart = new Intent(DetailProductActivity.this, CarritoActivity.class);
+                intentCart.putExtra("sku", sku);
+                intentCart.putExtra("nombre", nombre);
+                intentCart.putExtra("precio", precio);
+                intentCart.putExtra("img", img);
+                startActivity(intentCart);
             }
         });
 
@@ -122,6 +138,10 @@ public class DetailProductActivity extends AppCompatActivity implements GoogleAp
         /*DatabaseReference tutoralRef = database.getReference(FirebaseReferences.TUTORIAL_REFERENCE);
         Carrito cart = new Carrito(UID_user,1,1,2300);
         tutoralRef.child(FirebaseReferences.CARRITO_REFERENCE).push().setValue(cart);*/
+
+    }
+
+    private void addToInternCart(){
 
     }
 
